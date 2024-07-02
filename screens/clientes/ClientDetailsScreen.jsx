@@ -52,32 +52,32 @@ const ClientDetailsScreen = ({ route, navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.label}>Name:</Text>
+            <Text style={styles.label}>Nombre:</Text>
             <Text style={styles.value}>{client.name}</Text>
-            <Text style={styles.label}>Occupation:</Text>
+            <Text style={styles.label}>Ocupacion:</Text>
             <Text style={styles.value}>{client.occupation}</Text>
-            <Text style={styles.label}>Status:</Text>
+            <Text style={styles.label}>Estatus:</Text>
             <Text style={styles.value}>{client.status}</Text>
-            <Text style={styles.label}>Penalties:</Text>
+            <Text style={styles.label}>Multas:</Text>
             <Text style={styles.value}>{client.penalties}</Text>
-            <Text style={styles.label}>Payments:</Text>
+            <Text style={styles.label}>Pagos:</Text>
             <Text style={styles.value}>{client.payments}</Text>
 
             <TextInput
                 style={styles.input}
-                placeholder="Add Penalty"
+                placeholder="Agregar multa"
                 value={penalty.toString()}
                 onChangeText={(text) => setPenalty(parseInt(text))}
             />
-            <Button title="Add Penalty" onPress={handleAddPenalty} />
+            <Button title="Agregar multa" onPress={handleAddPenalty} />
 
             <TextInput
                 style={styles.input}
-                placeholder="Add Payment"
+                placeholder="Agregar pago"
                 value={payment.toString()}
                 onChangeText={(text) => setPayment(parseInt(text))}
             />
-            <Button title="Add Payment" onPress={handleAddPayment} />
+            <Button title="Agregar pago" onPress={handleAddPayment} />
         </View>
     );
 };

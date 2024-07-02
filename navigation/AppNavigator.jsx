@@ -10,6 +10,7 @@ import NewClientScreen from '../screens/clientes/NewClientScreen';
 import EditClient from '../screens/clientes/EditClient';
 import ClientsScreen from '../screens/clientes/ClientScreen';
 import WorkersScreen from '../screens/trabajadores/WorkersScreen';
+import ClientDetailsScreen from '../screens/clientes/ClientDetailsScreen';
 import Toast from 'react-native-toast-message';
 
 const Stack = createStackNavigator();
@@ -26,6 +27,7 @@ const AppNavigator = () => {
                 <Stack.Screen name="NewClient" component={NewClientScreen} options={{ title: 'Nuevo Cliente' }} />
                 <Stack.Screen name="EditClient" component={EditClient} options={{ title: 'Nuevo Cliente' }} />
                 <Stack.Screen name="Clients" component={ClientsScreen} options={{ title: 'Clientes' }} />
+                <Stack.Screen name="ClientDetails" component={ClientDetailsScreen} options={{ title: 'Detalles del cliente' }} />
                 <Stack.Screen name="Workers" component={WorkersScreen} options={{ title: 'Trabajadores' }} />
             </Stack.Navigator>
             <Toast ref={(ref) => Toast.setRef(ref)} />

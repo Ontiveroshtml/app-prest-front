@@ -20,7 +20,7 @@ const ClientsScreen = ({ navigation }) => {
             });
             setClients(data);
         } catch (error) {
-            console.error(error);
+            console.error('Error fetching clients:', error);
         }
     }, []);
 
@@ -95,17 +95,25 @@ const ClientsScreen = ({ navigation }) => {
                         <Text style={styles.fieldName}>Estatus: <Text style={styles.fieldValue}>{item.status}</Text></Text>
                         <View style={styles.buttonContainer}>
                             <TouchableOpacity
-                                style={styles.button}
-                                onPress={() => navigation.navigate('EditClient', { client: item, onClientUpdate: handleClientUpdate })}
+                                style={styles.detailsButton}
+                                onPress={() => navigation.navigate('ClientDetails', { clientId: item._id })}
                             >
-                                <Icon name="pencil" size={20} color="#000" />
+                                <Text style={styles.detailsButtonText}>Detalles</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity
-                                style={styles.button}
-                                onPress={() => confirmDeleteClient(item._id)}
-                            >
-                                <Icon name="trash" size={20} color="#000" />
-                            </TouchableOpacity>
+                            <View style={styles.iconButtonsContainer}>
+                                <TouchableOpacity
+                                    style={styles.iconButton}
+                                    onPress={() => navigation.navigate('EditClient', { client: item, onClientUpdate: handleClientUpdate })}
+                                >
+                                    <Icon name="pencil" size={25} color="#000" />
+                                </TouchableOpacity>
+                                <TouchableOpacity
+                                    style={styles.iconButton}
+                                    onPress={() => confirmDeleteClient(item._id)}
+                                >
+                                    <Icon name="trash" size={25} color="#000" />
+                                </TouchableOpacity>
+                            </View>
                         </View>
                     </View>
                 )}
@@ -151,10 +159,22 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         flexDirection: 'row',
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
         marginTop: 10,
     },
-    button: {
+    detailsButton: {
+        backgroundColor: '#007bff',
+        padding: 10,
+        borderRadius: 5,
+    },
+    detailsButtonText: {
+        color: '#fff',
+        fontSize: 16,
+    },
+    iconButtonsContainer: {
+        flexDirection: 'row',
+    },
+    iconButton: {
         marginLeft: 10,
     },
     addButton: {
